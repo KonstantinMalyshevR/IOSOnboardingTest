@@ -15,6 +15,9 @@
 		8BF19EC123F8E99F009D74A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF19EBF23F8E99F009D74A3 /* LaunchScreen.storyboard */; };
 		8BF19ECC23F8E9A0009D74A3 /* iOSTestOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF19ECB23F8E9A0009D74A3 /* iOSTestOnboardingTests.swift */; };
 		8BF19ED723F8E9A0009D74A3 /* iOSTestOnboardingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF19ED623F8E9A0009D74A3 /* iOSTestOnboardingUITests.swift */; };
+		8BF19EE723F91456009D74A3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF19EE623F91456009D74A3 /* PageViewController.swift */; };
+		8BF19EE923F915E4009D74A3 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF19EE823F915E4009D74A3 /* PageItemController.swift */; };
+		8BF19EEE23F91C26009D74A3 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF19EED23F91C26009D74A3 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		8BF19ED223F8E9A0009D74A3 /* iOSTestOnboardingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSTestOnboardingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF19ED623F8E9A0009D74A3 /* iOSTestOnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTestOnboardingUITests.swift; sourceTree = "<group>"; };
 		8BF19ED823F8E9A0009D74A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF19EE623F91456009D74A3 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		8BF19EE823F915E4009D74A3 /* PageItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
+		8BF19EED23F91C26009D74A3 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +105,12 @@
 		8BF19EB323F8E99D009D74A3 /* iOSTestOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				8BF19EEF23F91C2E009D74A3 /* onboarding */,
+				8BF19EEC23F91619009D74A3 /* storyboards */,
+				8BF19EEA23F915FD009D74A3 /* main */,
 				8BF19EB423F8E99D009D74A3 /* AppDelegate.swift */,
 				8BF19EB623F8E99D009D74A3 /* SceneDelegate.swift */,
-				8BF19EB823F8E99D009D74A3 /* ViewController.swift */,
-				8BF19EBA23F8E99D009D74A3 /* Main.storyboard */,
 				8BF19EBD23F8E99F009D74A3 /* Assets.xcassets */,
-				8BF19EBF23F8E99F009D74A3 /* LaunchScreen.storyboard */,
 				8BF19EC223F8E99F009D74A3 /* Info.plist */,
 			);
 			path = iOSTestOnboarding;
@@ -126,6 +132,41 @@
 				8BF19ED823F8E9A0009D74A3 /* Info.plist */,
 			);
 			path = iOSTestOnboardingUITests;
+			sourceTree = "<group>";
+		};
+		8BF19EEA23F915FD009D74A3 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				8BF19EB823F8E99D009D74A3 /* ViewController.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		8BF19EEB23F91608009D74A3 /* PageController */ = {
+			isa = PBXGroup;
+			children = (
+				8BF19EE823F915E4009D74A3 /* PageItemController.swift */,
+				8BF19EE623F91456009D74A3 /* PageViewController.swift */,
+			);
+			path = PageController;
+			sourceTree = "<group>";
+		};
+		8BF19EEC23F91619009D74A3 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8BF19EBA23F8E99D009D74A3 /* Main.storyboard */,
+				8BF19EBF23F8E99F009D74A3 /* LaunchScreen.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
+		8BF19EEF23F91C2E009D74A3 /* onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				8BF19EED23F91C26009D74A3 /* OnboardingViewController.swift */,
+				8BF19EEB23F91608009D74A3 /* PageController */,
+			);
+			path = onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +301,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF19EB923F8E99D009D74A3 /* ViewController.swift in Sources */,
+				8BF19EEE23F91C26009D74A3 /* OnboardingViewController.swift in Sources */,
+				8BF19EE723F91456009D74A3 /* PageViewController.swift in Sources */,
+				8BF19EE923F915E4009D74A3 /* PageItemController.swift in Sources */,
 				8BF19EB523F8E99D009D74A3 /* AppDelegate.swift in Sources */,
 				8BF19EB723F8E99D009D74A3 /* SceneDelegate.swift in Sources */,
 			);
