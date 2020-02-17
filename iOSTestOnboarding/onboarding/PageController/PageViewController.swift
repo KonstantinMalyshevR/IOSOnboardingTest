@@ -8,20 +8,20 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     private var texts: [String] = ["Длинный текст инструкции номер 1, Длинный текст инструкции номер 1, Длинный текст инструкции номер 1",
                                    "Длинный текст инструкции номер 2, Длинный текст инструкции номер 2, Длинный текст инструкции номер 2",
                                    "Длинный текст инструкции номер 3, Длинный текст инструкции номер 3, Длинный текст инструкции номер 3",
                                    "Длинный текст инструкции номер 4, Длинный текст инструкции номер 4, Длинный текст инструкции номер 4"]
     private var images: [String] = ["Image1", "Image2", "Image3", "Image4"]
-    
     var callback: ((Int)->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.dataSource = self
+        self.delegate = self
         
         if let vc = self.pageViewController(for: 0) {
             setViewControllers([vc], direction: .forward, animated: true, completion: nil)
@@ -36,6 +36,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         goToPreviousPage()
     }
     
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if (!completed) { return }
+        let index = (pageViewController.viewControllers!.first as? PageItemController)?.index ?? 0
+        callback?(index)
+    }
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = ((viewController as? PageItemController)?.index ?? 0) - 1
         return self.pageViewController(for: index)
@@ -46,16 +52,15 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         return self.pageViewController(for: index)
     }
     
+    
     func pageViewController(for index: Int) -> PageItemController? {
         guard index >= 0, index < texts.count else {
             return nil
         }
-        
         let vc = storyboard?.instantiateViewController(identifier: "PageItem") as! PageItemController
         vc.text = texts[index]
         vc.image = images[index]
         vc.index = index
-        callback?(index)
         return vc
     }
 }
